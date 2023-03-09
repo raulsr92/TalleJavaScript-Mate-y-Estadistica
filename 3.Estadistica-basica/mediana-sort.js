@@ -39,17 +39,50 @@ function esImpar(array){
 function mediana(array){
 	let mediana;
 	let indiceMediana;
+	let arraySorted = ordenarLista(array);  // uso de método OrdenaLista de línea 57
+	console.log(arraySorted);
 	
-	if(esImpar(array)){
-		indiceMediana = ((array.length+1)/2)-1; //le resto 1 porque un array inicia en 0
-		mediana = array[indiceMediana];
-	} else if(esPar(array)){
-		let indiceMediana1= (array.length/2)-1; //le resto 1 porque un array inicia en 0
+	if(esImpar(arraySorted)){
+		indiceMediana = ((arraySorted.length+1)/2)-1; //le resto 1 porque un array inicia en 0
+		mediana = arraySorted[indiceMediana];
+	} else if(esPar(arraySorted)){
+		let indiceMediana1= (arraySorted.length/2)-1; //le resto 1 porque un array inicia en 0
 		let indiceMediana2= indiceMediana1 + 1;
-		mediana = prom([array[indiceMediana1],array[indiceMediana2]])
+		mediana = prom([arraySorted[indiceMediana1],arraySorted[indiceMediana2]])
 	}
 	return mediana
 }
+
+// Función para ordenar un array con el método SORT
+
+	// con arrow function
+
+	function ordenarLista(array){
+		
+		const arraySorted = array.sort((a,b)=>{return a-b});
+
+		return arraySorted;
+	}
+
+
+	// con callback function
+
+	function ordenarLista2(arrayDesordenado){
+		function compare(a, b){
+			if(a<b){
+				return -1;
+			} else if( a==b){
+				return 0;
+			} else if (a>b){
+				return 1
+			}
+		}
+		const arraySorted = arrayDesordenado.sort(compare);
+		return arraySorted
+	}
+
+
+
 
 
 // Función para calcular el promedio
