@@ -1,37 +1,6 @@
-
-function moda(arrayDesordenado){
-	let arrayOrdenado = ordenarLista(arrayDesordenado);
-	let moda = [];
-
-	for (let i = 0; i < arrayOrdenado.length; i++) {
-
-		if(i==0){
-			moda.push(arrayOrdenado[i]);
-		} else if(arrayOrdenado[i]==arrayOrdenado[i-1]){
-			moda.push(arrayOrdenado[i]);
-		} else if(arrayOrdenado[i]!=arrayOrdenado[i-1]){
-			moda.pop();
-		}
-	}
-}
-
 // Moda
 
 function calcularModa(array){
-	const listaCount = {};
-
-	for (let i = 0; i < array.length; i++) {
-		const element = array[i];
-		console.log(element);
-
-		// crear propiedades del objeto listaCount
-		listaCount[element] = 1;
-
-		console.log(listaCount);
-	}
-}
-
-function calcularModa2(array){
 	const listaCount = {};
 
 	for (let i = 0; i < array.length; i++) {
@@ -81,15 +50,6 @@ function calcularModa2(array){
 }
 
 
-// Función para ordenar un array con el método SORT
 
-	// con arrow function
-
-	function ordenarLista(array){
-		
-		const arraySorted = array.sort((a,b)=>{return a-b});
-
-		return arraySorted;
-	}    
 
 
