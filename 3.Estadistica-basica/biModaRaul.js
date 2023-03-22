@@ -32,7 +32,7 @@ function calcularModa(array){
 	// geterminamos cuál es el mayor
 	let valores = Object.values(listaCount);
 	let claves = Object.keys(listaCount);
-    let moda = {};
+    let moda = {}; // objeto que agrupará a cantidad de modas del array
 
 
     console.log(claves);
@@ -71,7 +71,6 @@ function calcularModa(array){
         console.log(indices);
 
         for (let k = 0; k < indices.length; k++) {
-            const element = array[k];
             moda[k+1] =  claves[indices[k]];
         }
         console.log(moda);
