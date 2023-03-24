@@ -29,7 +29,7 @@ function calcularModa(array){
 
 
 	// Ahora que tenemos nuestro objeto que ha agrupado a todos los elementos del array
-	// geterminamos cuál es el mayor
+	// determinamos cuál es el mayor
 	let valores = Object.values(listaCount);
 	let claves = Object.keys(listaCount);
     let moda = {}; // objeto que agrupará a cantidad de modas del array

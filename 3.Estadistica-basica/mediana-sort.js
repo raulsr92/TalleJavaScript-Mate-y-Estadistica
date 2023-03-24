@@ -39,6 +39,7 @@ function esImpar(array){
 function mediana(array){
 	let mediana;
 	let indiceMediana;
+	console.log(array);
 	let arraySorted = ordenarLista(array);  // uso de método OrdenaLista de línea 57
 	console.log(arraySorted);
 	
