@@ -8,10 +8,8 @@ PlatziMath.calcularPromedio =function calcularPromedio(array){
 
 	sum = array.reduce(function(acumulador, valorActual){return acumulador+valorActual},valorInicial)
 			
-	console.log(sum);
     
     media = (sum / (array.length))
-    console.log(media);
     return media;
 }
 
@@ -134,17 +132,15 @@ PlatziMath.calcularModaUni= function calcularModaUni(array){
 PlatziMath.calcularMediana=function calcularMediana(array){
 	let mediana;
 	let indiceMediana;
-	console.log(array);
-	let arraySorted = this.ordenarLista(array);  
-	console.log(arraySorted);
+	let arraySorted = PlatziMath.ordenarLista(array);  
 	
-	if(this.esImpar(arraySorted)){
+	if(PlatziMath.esImpar(arraySorted)){
 		indiceMediana = ((arraySorted.length+1)/2)-1; 
 		mediana = arraySorted[indiceMediana];
-	} else if(this.esPar(arraySorted)){
+	} else if(PlatziMath.esPar(arraySorted)){
 		let indiceMediana1= (arraySorted.length/2)-1; 
 		let indiceMediana2= indiceMediana1 + 1;
-		mediana = this.calcularPromedio([arraySorted[indiceMediana1],arraySorted[indiceMediana2]])
+		mediana = PlatziMath.calcularPromedio([arraySorted[indiceMediana1],arraySorted[indiceMediana2]])
 	}
 	return mediana
 }
