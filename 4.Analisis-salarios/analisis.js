@@ -34,3 +34,48 @@ function medianaSalarios(empleado){
         return console.log(`Le informamos que ${empleado} no trabaja aquí`)
     }
 }
+
+
+ // Clase 26: formar un array organizado por Empresas
+
+ const empresas = {};
+
+ for (persona of salarios) {
+    console.log(persona)
+ }
+
+ for (persona of salarios) {
+    for (trabajo of persona.trabajos) {
+        console.log(trabajo)
+    }
+ }
+
+/* for (persona of salarios) {
+    for (trabajo of persona.trabajos) {
+        console.log(trabajo.empresa)
+        
+        if (empresas[trabajo.empresa]) {
+            empresas[trabajo.empresa] = empresas[trabajo.empresa]+1
+        } else{
+            empresas[trabajo.empresa] = 1
+        }
+    }
+  
+ }
+ console.log(empresas)*/
+
+
+ for (persona of salarios) {
+    for (trabajo of persona.trabajos) {
+        console.log(trabajo.empresa)
+        
+        if (!empresas[trabajo.empresa]) {
+            empresas[trabajo.empresa] = {};
+        }
+        if(!empresas[trabajo.empresa][trabajo.year]){
+            empresas[trabajo.empresa][trabajo.year] =[];
+        }   
+        empresas[trabajo.empresa][trabajo.year].push(trabajo.salario);
+    }
+ }
+ console.log(empresas)

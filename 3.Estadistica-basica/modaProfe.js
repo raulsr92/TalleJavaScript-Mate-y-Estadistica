@@ -41,3 +41,5 @@ function calcularModa(array){
 
 		return arrayBiSorted;
     }
+
+    
