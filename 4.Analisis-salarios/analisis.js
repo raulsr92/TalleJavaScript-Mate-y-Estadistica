@@ -122,3 +122,97 @@ function medianaSalarios(empleado){
         }
        
       }
+
+// Clase 28: Top 10% de salarios
+
+function medianaGeneral(){
+
+    // Capturar en un array las medianas de todos los empleados
+    let medianas = [];
+    for(persona of salarios){
+        medianas.push(medianaSalarios(persona.name));
+    }
+    console.log(medianas)
+
+    // Calcular la mediana de todas las medianas
+
+    let medianaDeMedianas = PlatziMath.calcularMediana(medianas);
+    console.log(medianaDeMedianas);
+};
+
+// FORMA 1
+
+function medianaTop10Salarios(){
+    // Capturar en un array las medianas de todos los empleados
+    let medianas = [];
+    for(persona of salarios){
+        medianas.push(medianaSalarios(persona.name));
+    }
+    console.log(medianas)
+    // Ordenar el array de las medianas
+    let medianasOrdenadas = medianas.sort((a,b)=>{return a-b});
+    console.log(medianasOrdenadas);
+    // capturar el el 10% de los salarios más altos 
+    const cantidadTop10 = (medianasOrdenadas.length)*0.1;
+    console.log(cantidadTop10);
+    let medianasTop10 = [];
+    for (let i = 0; i < cantidadTop10; i++) {
+        medianasTop10.push(medianasOrdenadas.pop());
+    }
+    console.log(medianasTop10);
+    // mediana del top 10
+    return PlatziMath.calcularMediana(medianasTop10);
+}
+
+// FORMA 2 - Método slice( )
+
+function medianaTop10Salarios2(){
+    // Capturar en un array las medianas de todos los empleados
+    let medianas = [];
+    for(persona of salarios){
+        medianas.push(medianaSalarios(persona.name));
+    }
+    console.log(medianas)
+    // Ordenar el array de las medianas
+    let medianasOrdenadas = medianas.sort((a,b)=>{return a-b});
+    console.log(medianasOrdenadas);
+    // capturar el el 10% de los salarios más altos 
+    const cantidadTop10 = (medianasOrdenadas.length)*0.1;
+    console.log(cantidadTop10);
+
+    const startSlice=medianasOrdenadas.length - cantidadTop10;
+
+    let medianasTop10= medianasOrdenadas.slice(startSlice);
+
+    console.log(medianasTop10);
+
+    return PlatziMath.calcularMediana(medianasTop10);
+
+}
+
+// FORMA 3 - Método splice( )
+
+function medianaTop10Salarios3(){
+    // Capturar en un array las medianas de todos los empleados
+    let medianas = [];
+    for(persona of salarios){
+        medianas.push(medianaSalarios(persona.name));
+    }
+    console.log(medianas)
+    // Ordenar el array de las medianas
+    let medianasOrdenadas = medianas.sort((a,b)=>{return a-b});
+    console.log(medianasOrdenadas);
+    // capturar el el 10% de los salarios más altos 
+    const cantidadTop10 = (medianasOrdenadas.length)*0.1;
+    console.log(cantidadTop10);
+
+    const deleteCount=medianasOrdenadas.length - cantidadTop10;
+
+    let medianasTop10= medianasOrdenadas.splice(0, deleteCount)
+
+    console.log(medianasTop10); //en este array se almacenan los elementos removidos
+    console.log(medianasOrdenadas); // el array original es el que ha sufrido los cambios y tiene el top 10
+
+    return PlatziMath.calcularMediana(medianasOrdenadas);
+
+}
