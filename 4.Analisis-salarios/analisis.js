@@ -36,7 +36,7 @@ function medianaSalarios(empleado){
 }
 
 
- // Clase 26: formar un array organizado por Empresas
+ // Clase 25: formar un array organizado por Empresas
 
  const empresas = {};
 
@@ -79,3 +79,22 @@ function medianaSalarios(empleado){
     }
  }
  console.log(empresas)
+
+  // RETO Clase 25: Calcular la mediana de cada año en las empresas (crear Función con parámetros de empresa y año)
+
+  function calcularMedianaPorAño (empresa, año){
+    // Buscar la empresa: como "empresas" es un objeto, la buscamos de esta manera
+    let findEmpresa = empresas[empresa];
+    console.log(findEmpresa);
+
+    // Buscar el año dentro del objeto empresa que ha sido encontrado, lo que nos devuelve un array con los salarios
+
+    let findYear = findEmpresa[año];
+    console.log(findYear);
+
+    // calcular mediana
+
+    return PlatziMath.calcularMediana(findYear);
+   
+
+  }
