@@ -98,3 +98,27 @@ function medianaSalarios(empleado){
    
 
   }
+
+    // Clase 26: Mejoras en reto de clase 25
+
+    function calcularMedianaPorAño (empresa, año){
+
+        if(empresas[empresa]){
+            // Buscar la empresa: como "empresas" es un objeto, la buscamos de esta manera
+            let findEmpresa = empresas[empresa];
+            console.log(findEmpresa);
+            
+            if (findEmpresa[año]){
+                // Buscar el año dentro del objeto empresa que ha sido encontrado, lo que nos devuelve un array con los salarios
+                let findYear = findEmpresa[año];
+                console.log(findYear);
+                return PlatziMath.calcularMediana(findYear);
+            } else{
+                return console.log(`No tenemos registros del año ${año} para la empresa ${empresa} .`)
+            }
+
+        } else{
+            return console.log(`La empresa ${empresa} no se ecuentra en nuestro registro.`)
+        }
+       
+      }
